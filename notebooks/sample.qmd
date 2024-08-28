@@ -1,0 +1,36 @@
+---
+title: "ESMA 6605: Sampleling"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+```{python}
+import numpy as np
+```
+
+```{python}
+print(np.random.choice(range(1, 30), 3, replace=False))
+```
+
+```{python}
+sample = 1000
+pop = 12191
+sci_arg = 955/pop
+sci = 3083/pop
+art = 1969/pop
+emp = 1388/pop
+eng = 4694/pop
+cont = 102/pop
+print(sci_arg, sci, art, emp, eng, cont)
+```
+
+```{python}
+print(np.random.choice(range(1, 7), 1000, p=[sci_arg, sci, art, emp, eng, cont]))
+```
+
+```{python}
+print(np.random.choice(range(1, 20), 1))
+
+```
