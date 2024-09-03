@@ -1,0 +1,101 @@
+---
+title: "ESMA 6605: Sampleling"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+```{python}
+import os
+os.chdir('..')
+```
+  
+```{python}
+import geopandas as gpd
+import pandas as pd
+import polars as pl
+import numpy as np
+import plotly.express as px
+```
+
+```{python}
+gdf = gpd.read_file('data/raw/tl_2020_us_county.zip', engine="pyogrio")
+gdf = gdf[gdf["STATEFP"] == "72"].reset_index(drop=True)
+gdf = gdf.to_crs("EPSG:4326").rename(columns={"NAMELSAD": "Pueblo"})
+data = pl.read_csv('data/raw/municipios.csv')
+data= data.with_columns(pl.col("Pueblo").str.replace(".", ""))
+data = data.to_pandas()
+```
+### Calculate the Mean Manualy with numpy
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+
+
+```{python}
+def mean(data):
+  summ = 0
+  for obs in data:
+    summ += obs
+  return summ / len(data)
+mean(data["Poblacion"])
+```
+
+### Calculate the Meadian Manualy with numpy
+
+$$\text{Median} = \begin{cases} 
+      x_{\frac{n+1}{2}} & \text{if } n \text{ is odd} \\
+      \frac{x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}}{2} & \text{if } n \text{ is even} 
+    \end{cases}$$
+
+```{python}
+def median(data):
+  data = np.sort(data)
+  n = len(data)
+  if n % 2 == 0:
+    return (data[n//2] + data[n//2 - 1]) / 2
+  else:
+    return data[n//2]
+median(data["Poblacion"])
+```
+
+```{python}
+gdf = pd.merge(gdf, data, on="Pueblo")
+gdf = gpd.GeoDataFrame(gdf, geometry=gdf["geometry"])
+fig = px.choropleth_mapbox(gdf,
+                            geojson=gdf.geometry,
+                            locations=gdf.index,
+                            hover_name="Pueblo",
+                            color="Poblacion",
+                            center={"lat": 18.2, "lon": -66.5},
+                            color_continuous_scale="Viridis",
+                            mapbox_style="carto-positron")
+fig.show()
+```
+## Calculate the Quantile
+```{python}
+def quantile(data, q):
+  data = np.sort(data)
+  n = len(data)
+  if n % q == 0:
+    return data[n//q]
+  else:
+    return (data[n//q] + data[n//q + 1]) / 2
+
+def quantile2(data, q):
+  data = np.sort(data)
+  n = len(data)
+  return data[n//q]
+
+print(quantile(data["Poblacion"], 4))
+print(quantile2(data["Poblacion"], 4))
+print(np.quantile(data["Poblacion"], 0.25))
+
+```
+
+
+
+```{python}
+data.boxplot(column="Poblacion")
+```
+

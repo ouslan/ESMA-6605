@@ -1,0 +1,64 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+
+\title{ESMA 6005: Assignacion 1}
+\author{Alejandro Ouslan}
+\date{Para Miercoles 4 de septiembre de 2024}
+
+\begin{document}
+
+\maketitle
+
+\vspace{.25in}
+
+\section{Problema 1}
+Las botellas que produce cierta compañía embotelladora de agua anuncian en su etiqueta que
+contienen 16.9 onzas fluidas. Desea tomar una muestra de al menos 100 botellas de esta
+compañía para corroborar si en promedio las botellas contienen lo que se anuncia en la
+etiqueta. Las botellas se almacenan en cajas de 20 botellas cada una y en el almacén de la
+compañía hay 1000 cajas. En el documento adjunto (Anejo Problema 1) se muestran 4
+diferentes configuraciones para el cuatro de producción de la compañía y de su almacén. Para
+cada configuración, describa cómo selecciona la muestra en no más de 4 oraciones. Si su
+descripción es un método de muestreo conocido, entonces indique el nombre del método de
+muestreo que describió
+
+\begin{enumerate}
+	\item Para la primera configuracion, se escoge la muestra de manera aleatoria simple, es decir,
+	      se escogen las 100 botellas de cualquier caja de las 1000 cajas que hay en el almacen.
+	\item Para la segunda configuracion, se escoge la muestra de manera systemática, es decir, se escogen
+	      seigmentos de 3 bottelas en orden esto es para tener representacion de cada linea de produccion.
+	\item Para la tercera configuracion, se escoge la muestra de manera estratificada y sistematica,
+	      es decir, se escogen por cada 3 cajas de cada linea de produccion una muestra aleatoria.
+	\item Para la cuarta configuracion, se escoge la muestra de manera estratificada, es decir, se escogen
+	      aleatoriamente las botellas por cada caja de cada linea de produccion.
+\end{enumerate}
+
+\section{Problema 2}
+En clase estudiamos algunos métodos de muestreo. Lea sobre otros métodos de muestreo y
+describa uno de ellos en esta tarea y una posible aplicación.
+
+\begin{itemize}
+	\item \textbf{Snowball Sampling:} Este metodo de muestreo es utilizado cuando la poblacion es dificil de
+	      acceder, por lo que se empieza con un individuo y se le pide que recomiende a otros individuos que
+	      cumplan con las caracteristicas de la poblacion. Este metodo es utilizado en estudios de poblaciones
+	      de personas con enfermedades raras, ya que es dificil acceder a ellas.
+\end{itemize}
+
+\end{document}
