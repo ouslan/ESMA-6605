@@ -1,0 +1,21 @@
+---
+title: "ESMA 6605: Sampleling"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+
+```{python}
+import numpy as np
+```
+
+```{python}
+np.random.seed(0)
+np.random.choice(5
+
+
+```
+
+
