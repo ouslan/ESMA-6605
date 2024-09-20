@@ -1,5 +1,7 @@
 \documentclass[10pt, oneside]{article}
 \usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 \geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
 
@@ -54,4 +56,30 @@
 		      ionada al azar de modo que todas las muestras de tamano $n$ tiene la misma probabilidad de ser seleccionadas.
 	      \end{defn}
 \end{itemize}
+
+\subsection{sd}
+\begin{tikzpicture}
+	\begin{axis}[
+			axis lines = middle,
+			xlabel = $x$,
+			ylabel = $f(x)$,
+			title = Normal Distribution Curve,
+			domain = -4:4,
+			samples = 100,
+			width = \textwidth,
+			height = 6cm,
+			xlabel style = {font=\footnotesize},
+			ylabel style = {font=\footnotesize},
+			title style = {font=\footnotesize},
+			grid = major,
+			restrict y to domain = 0:1,
+			enlargelimits
+		]
+		\addplot[
+			thick,
+			blue
+		]
+		{exp(-x^2/2) / sqrt(2*pi)};
+	\end{axis}
+\end{tikzpicture}
 \end{document}

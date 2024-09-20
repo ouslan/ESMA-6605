@@ -1,0 +1,17 @@
+---
+title: "ESMA 6605: Inferencia"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+
+# Intervalos de Confianza para $\mu$
+
+## Problema 1
+
+Ungurpo de nutricionistas desea estimar el contenido de proteinas de cierta comidad
+enlatada. Obtuvo una muestra aleatoria de 18 latas y para cada lata se midio el ontenido de proteinas. 
+El conjunto de datos se  muestra a continuacion.
+$$ S = \{ 5.1, 4.9, 6.0, 5.0, 6.7, 5.5, 4.9, 6.1, 6.0, 5.8, 5.2, 4.7, 4.2, 4.9, 5.5, 5.6, 5.8, 6.0 \} $$

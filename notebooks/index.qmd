@@ -1,0 +1,30 @@
+---
+title: "ESMA 6605: Sampleling"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+```{python}
+import os
+os.chdir('..')
+```
+
+
+```{python}
+import polars as pl
+```
+
+```{python}
+months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", "Meses"]
+```
+
+
+```{python}
+df = pl.read_excel("data/raw/data.xlsx", sheet_name="INDICE_BDE")
+# drop nulls
+df  = df.filter(pl.col("ÍNDICE DE ACTIVIDAD ECONÓMICA").is_in(months)).drop("Índice    Index").head(13)
+df.rename(df.head(1).with_columns(pl.all().exclude("ÍNDICE DE ACTIVIDAD ECONÓMICA").cast(pl.Int64)).cast(pl.String).to_dicts().pop())
+```
+

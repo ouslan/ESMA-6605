@@ -1,0 +1,28 @@
+---
+title: "ESMA 6605: Probabilidad"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+# Teorema de Limite Central (TLC)
+ 
+
+## Ejecicio 1
+
+El peso en hombres tiene distribucion normal con media 173 lbs y desviacion estandar
+29 lbs.
+
+- Un hombre es selccionado aleatoriamente, cual es la probabilidad de que pese mas de 167 lbs?
+- Se selcciona una muestra aleatoria de 12 hombres, cual es la proabilidad de en 
+  promedio pesen mas de 167?
+
+## Ejecicio 2
+
+El peso en hombres tiene media 172 lbs y desviacion estandas 29 lbs.
+
+- Un hombre es selccionado aleatoriamnete, cual es la probabilidad de que pese mas de 167 lbs?
+- Se selecciona una muestra aleatoria de 12 hombre, cual es la probabilidad de en promedio pesen mas de 167 lbs?
+- Se selecciona una muestra aleatoria de 37 hombre, cual es la probabilidad de en promedio pesen mas de 167 lbs?
+

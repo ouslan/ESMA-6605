@@ -9,13 +9,29 @@ jupyter: python3
 
 ```{python}
 import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+
 ```
 
+# Valor experado de tiros de datos 
 ```{python}
 np.random.seed(0)
-np.random.choice(5
+resutls = np.random.choice(a=2, size=1000, replace=True, p=[0.15, 0.85])
+cumsum = np.cumsum(resutls)/np.arange(1, 1001)
+plt.plot(cumsum)
+```
 
+# Problema Bional
+```{python}
+print(stats.binom.cdf(k=35, n=300, p=(1/75)))
+print(14 * .15)
 
+print(np.random.choice([0, 1], size=12, p=[0.15, 0.85]))
+```
+## Example 
+```{python}
+print(stats.binom.pmf(k=50, n=100, p=0.5))
 ```
 
 
