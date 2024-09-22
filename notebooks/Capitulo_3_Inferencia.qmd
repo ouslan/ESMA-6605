@@ -15,3 +15,6 @@ Ungurpo de nutricionistas desea estimar el contenido de proteinas de cierta comi
 enlatada. Obtuvo una muestra aleatoria de 18 latas y para cada lata se midio el ontenido de proteinas. 
 El conjunto de datos se  muestra a continuacion.
 $$ S = \{ 5.1, 4.9, 6.0, 5.0, 6.7, 5.5, 4.9, 6.1, 6.0, 5.8, 5.2, 4.7, 4.2, 4.9, 5.5, 5.6, 5.8, 6.0 \} $$
+
+Asuma que la poblacion, o sea, el contenido de proteinas de todads las latas en esta comida enlatada tiene distribucio
+normal con desviacion estadas 
