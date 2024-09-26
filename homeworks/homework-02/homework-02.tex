@@ -1,0 +1,53 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+
+\title{ESMA 6005: Assignacion 2}
+\author{Alejandro Ouslan}
+\date{Para Miercoles 4 de septiembre de 2024}
+
+\begin{document}
+
+\maketitle
+
+\vspace{.25in}
+
+\section{Problema 1}
+Quiere empezar un negocio pequeño. Se ha dado cuenta de que muchos de los estudiantes de
+UPRM tiene que ir a la casa de sus padres el fin de semana porque no tienen facilidades en
+Mayagüez para lavar su ropa. Piensa que tener una lavandería con precios módicos y un buen
+ambiente sería un buen negocio en Mayagüez. Hace una encuesta con 500 estudiantes
+seleccionados aleatoriamente de la UPRM, 155 de ellos le dicen que usarían su servicio de
+lavandería. Construya un intervalo de confianza de 95\% para estimar la proporción de
+estudiantes de RUM que usarían su servicio lavandería.
+
+\begin{itemize}
+	\item \textbf{Ecriba el praametro de interes.}\\
+	      El parametro de interes es la proporcion de estudiantes de RUM que usarian el servicio de lavanderia.
+	\item \textbf{Construya el intervalo de confianza de 95\%.}
+	      \[
+		      \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = 0.31 \pm 1.96 \sqrt{\frac{0.31(1-0.31)}{500}} = [0.27,0.35]
+	      \]
+	\item \textbf{Indique la interpretacion del intervalo de confianza.}\\
+	      Estamos 95\% seguros de que la proporcion de estudiantes de RUM que usarian el servicio de lavanderia esta entre 27\% y 35\%.
+
+
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,26 @@
+---
+title: "ESMA 6605: Introduccion y Estadistica Descriptiva"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+# Muestreo 
+
+- Queremos hacer inferencias sobre la poblacion usando una muestra que extraemos de ella. No cualquier muestra
+puede usarse como base para hacer inferencias valdas. Muestras por conveniencia o muestras donde se piden 
+voluntarios podrian llevar a conclusiones sesgadas (polarizadas). Algunas observaciones pueden ocurrir mas 
+frecuentemente de lo que ocurren en la poblacion y otras menos frecuentemente de lo que ocurren en la poblacion.
+
+- Ejemplos: encuestas en el radio, recistas, TV; estudio xlinixo xon precientes mas enfermos
+
+El componente aleatorio deb eestar presente en la forma en que seleccionamos la muestra. Esto amuenta la probabilidad 
+de obtener una muestra que tnega la dicersidad de caracteristicas que tienen la problacion y ademas permite usar la 
+probabilidad para hacer inferencias. A continuaxion algunos metodos de muestreo. En cualquier caso se debe tener una
+lista de todos los elemntos de la poblacion (*sampling frame).
+
+1. Muestras aleatorias simple:
+    - **Definicion**: una muestra de tamano $n$ es seleccionada al azar de modo que todas las muestras de tamano $n$ 
+      tiene la misma probabilidad de ser seleccionadas.
+
