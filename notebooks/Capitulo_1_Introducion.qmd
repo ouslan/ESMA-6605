@@ -64,3 +64,61 @@ encontraron diferencia significativa entre los dos grupos por lo que concluyeron
 teléfono celular no está asociado al incremento en el riesgo de desarrollar tumor cerebral. (Schüz
 et al., 2006, Cellular Phone Use and Cancer Risk: Update of a Nationwide Danish Cohort,
 Journal of the National Cancer Institute 98(23))
+
+- **Ejemplo 2**: Se investigó el riesgo de desarrollar tumor cerebral por la exposición a dos
+radiofrecuencias comunes en los teléfonos celulares: 835.62 MHz y 847.74 MHz. Investigadores
+dividieron aleatoriamente 480 ratas en 3 grupos. Un grupo fue expuesto a la radiofrecuencia
+835.62 MHz, otro grupo a la radiofrecuencia 847.74 MHz y el otro no recibió radiación. Las
+ratas recibieron radiación 4 horas al día, cinco días a la semana por dos años. Las ratas en los tres
+grupos recibieron el mismo cuidado excepto por la exposición a la radiación. Después de 505
+días de exposición los científicos no encontraron aumento significativo en ningún tipo de tumor
+en las ratas expuestas a radiación comparadas con las que no estuvieron expuestas a la radiación.
+(La Regina et al., The effect of chronic exposure to 835.62 MHz FMCW or 847.74 MHz CDMA
+on the Incidence of Spontaneous Tumors in Rats, Bioelectromagnetic Society Conference 2002)
+
+1. **Censo**: listado de las variables de interes de todos los elementos de la poblacion
+
+2. **Estudios observacionales**: Se estudia las caracterisitcas de interes sin tratar de manipularla, 
+influenciarla o controlarla.
+  - Tipos De estudios observacionales:
+     - Case Report\Case Series – Estudios descriptivos que siguen un pequeño número
+       de sujetos. Ejemplo: Ver Pneumocystis Pneumonia, Páginas 729-733.
+     - Estudios Transversales (Cross-sectional Studies) – El conjunto de datos se obtiene
+       sólo en un tiempo particular. Ejemplo: Encuestas de opinión del Periódico Nuevo
+       Día
+     - Estudios Prospectivos (Prospective Studies or Longitudinal studies) – El conjunto
+       de datos se obtiene en el futuro luego de monitorear a grupos de participantes
+       (cohorts) en el tiempo. Ejemplo: Ver
+       https://www.framinghamheartstudy.org/about-fhs/index.php
+     - Estudios Retrospectivos (Retrospective Studies) – El conjunto de datos se obtiene
+       examinando el tiempo pasado (records, entrevistas) de un grupo de participantes.
+       Ejemplo: Estudio para aprender sobre el efecto del consumo del ácido fólico
+       durante el embarazo en nacimientos con espina bífida. Se toma una muestra de
+       mujeres que han tenido hijos. Para esta muestra se colecta información sobre el
+       estado al nacer del bebé (espina bífida/no bífida), uso del ácido fólico durante el
+       embarazo, posiblemente también información sobre dieta, ejercicio, condición de
+       salud, etc.
+     - Case-Control Studies – los participantes se escogen de acuerdo a la variable de
+       interés y el conjunto de datos se obtiene examinando el tiempo pasado (records,
+       entrevistas) de estos participantes. Ejemplo: Estudio para aprender sobre el efecto
+       del consumo del ácido fólico durante el embarazo en nacimientos con espina
+       bífida. Se toma una muestra de mujeres que han tenido hijos con espina bífida y
+       otra muestra de mujeres que han tenido hijos sin espina bífida. Para cada muestra
+       se colecta información sobre el uso del ácido fólico durante el embarazo,
+       posiblemente también información sobre dieta, ejercicio, condición de salud, etc
+  - Solo se puede establecer asociacion y no cause ya que pueden ecisxtir otras variables 
+    que no se tomaron en cuenta (*lurking variables*) que potencialmente afectan la variable 
+    de interes y no has sido consideradas en el estudio.
+
+3. **Expermentos**: se estudia la caracteristicas de interes (variables repuestas) mientras se 
+controlan otras cariables (trataminetos) que pueden influenciarla con el proposito de medir como los cambios 
+en las variables repuesta.
+  - Que variables pueden afectar la cariables de interes? Cuales de estas?
+    - Minimizar el efecto de las cariables que  no se pueden controlar 
+    - Aumentar la probabilidad de obtener una muestra con la dicersidad de caracteristicas de la poblacion 
+  - Replicacion (*replication*): los tratamientos son asignados a mas de una unidad experimental
+    - Resultado no sea producto de una caracterisitca particular de alguno de ellos
+    - Aumentar la probabilidad causa y efecto
+  - Se puede establecer casusa y efecto
+
+# Diseno de Experimentos 
