@@ -23,4 +23,44 @@ lista de todos los elemntos de la poblacion (*sampling frame).
 1. Muestras aleatorias simple:
     - **Definicion**: una muestra de tamano $n$ es seleccionada al azar de modo que todas las muestras de tamano $n$ 
       tiene la misma probabilidad de ser seleccionadas.
+    - **En la praactica**: Se obtien seleccionando un individuo a la vez, al azar y sin reemplazo de la poblaccion 
+      hasta obtener un muestra de tamano $n$. Para hacer la seleccion a azar pueede usar una tabla de numero aleatorios, 
+      culculadora o aplicacion de computadoras como MINITAB, R, etc.
+    - **Nota**: De seleccionarse los individuos a la muestra al azar y con reemplazo tenedremos lo que se conoce como 
+      muestra alewatoriDe seleccionarse los individuos a la muestra al azar y con reemplazo tenedremos lo que se conoce como muestra alewatoria.
 
+Problema: Desea hacer un estudio para evualar el proceso de matricula de los estudiantes subgraduados en el RUM. Decide tomar una muestra de 1000 
+estudiantes subgraduados de una lista que tiene que los divide por facultad.
+
+| Facultad | Estudiantes |
+|----------|-------------|
+| Ciencias Agricolas | 955 |
+| Ciencias | 3,083 |
+| Artes | 1,969 |
+| Administracion de Empresas | 1,388 |
+| Ingenieria | 4,694 |
+| Educacion | 103 |
+| Total | 12,191 |
+
+2. **Muestra Estratificada**: La poblacion esta dividida en estratos o grupos tipicamente homogeneos.
+De cada estrato se toma una muestra aleatoria simple. La union de todas estas muestras es la muestra estratificada.
+La muestra aleatoria simple puede ser propocinal al tamano del estrato.
+
+3. **Muestra por Conglomerados**: La poblacion esta dividida en grupos. Se obtien una muestra aleatoria simple de grupos. La muestra por 
+conglomerados es la union de todos los inidviduos en losgrupos seleccionadfos.
+
+4. **Muestra Sistematica**: Se selecciona a la muetra un primer individuo al azar. A partir de este se sxeleccionan individuos a la misma 
+distancia en la lista de la poblacion hasta obtener el tamano de muestras deseado. Por ejemplo si la poblacion tiene 100 individuos y quiere una muestra de 
+5 individuos. Selecciona el primer individuo al azar entre los primeros 20 individuos ($\frac{100}{5} = 20$). Suponga que selecciona al individuo en la posicion numero 4 
+luego  se selecciona los individuos en las posiciones 4, 24, 44, 64 y 84.
+
+# Recolecion de Datos 
+
+- **Ejemplo 1**: Se investigó el riesgo de desarrollar cáncer en usuarios de teléfonos celulares en
+Dinamarca. Investigadores siguieron a 420,095 personas que tuvieron su primer celular entre
+1982 y 1995. En el 2002, determinaron la frecuencia de tumor cerebral en estos individuos y la
+compararon con la frecuencia de tumor cerebral en la población general. Los científicos no
+encontraron diferencia significativa entre los dos grupos por lo que concluyeron que el uso del
+teléfono celular no está asociado al incremento en el riesgo de desarrollar tumor cerebral. (Schüz
+et al., 2006, Cellular Phone Use and Cancer Risk: Update of a Nationwide Danish Cohort,
+Journal of the National Cancer Institute 98(23))
