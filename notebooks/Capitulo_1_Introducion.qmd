@@ -6,12 +6,12 @@ format:
 jupyter: python3
 ---
 
-# Muestreo 
+# Muestreo
 
-- Queremos hacer inferencias sobre la poblacion usando una muestra que extraemos de ella. No cualquier muestra
-puede usarse como base para hacer inferencias valdas. Muestras por conveniencia o muestras donde se piden 
-voluntarios podrian llevar a conclusiones sesgadas (polarizadas). Algunas observaciones pueden ocurrir mas 
-frecuentemente de lo que ocurren en la poblacion y otras menos frecuentemente de lo que ocurren en la poblacion.
+- Queremos hacer inferencias sobre la población usando una muestra que extraemos de ella. No cualquier muestra
+puede usarse como base para hacer inferencias validas. Muestras por conveniencia o muestras donde se piden 
+voluntarios podrían llevar a conclusiones sesgadas (polarizadas). Algunas observaciones pueden ocurrir mas 
+frecuentemente de lo que ocurren en la población y otras menos frecuentemente de lo que ocurren en la población.
 
 - Ejemplos: encuestas en el radio, recistas, TV; estudio xlinixo xon precientes mas enfermos
 
@@ -42,7 +42,7 @@ estudiantes subgraduados de una lista que tiene que los divide por facultad.
 | Educacion | 103 |
 | Total | 12,191 |
 
-2. **Muestra Estratificada**: La poblacion esta dividida en estratos o grupos tipicamente homogeneos.
+2. **Muestra Estratificada**: La población esta dividida en estratos o grupos típicamente homogéneos.
 De cada estrato se toma una muestra aleatoria simple. La union de todas estas muestras es la muestra estratificada.
 La muestra aleatoria simple puede ser propocinal al tamano del estrato.
 
@@ -121,4 +121,25 @@ en las variables repuesta.
     - Aumentar la probabilidad causa y efecto
   - Se puede establecer casusa y efecto
 
-# Diseno de Experimentos 
+# Diseño de Experimentos
+
+Puede leer más detalles en su libro de texto o en cualquier libro de Diseño de Experimentos
+(Experimental Design). Los diseños de experimentos buscan evitar, entre otras cosas, los efectos
+confundidos (confounding effects) que ocurren cuando no se puede identificar el efecto de los
+tratamientos en la variable respuesta
+
+**Diseno Completamente Aleatorizado**: (Completely Randomized Design) - Cada unidad eperimental es asignada a un tratamiendo aleatoriamente.
+  - Ejemplo: En un hospital psiquiátrico se quiere comparar cinco métodos distintos para remotivar
+    pacientes. Se seleccionaron 20 pacientes del hospital aleatoriamente y a cada uno se le asignó
+    aleatoriamente uno de los cinco métodos de remotivación de manera que hubiera cuatro
+    pacientes por método. Al final del periodo experimental los pacientes fueron evaluados por un
+    grupo de expertos que no conocían el método asignado a los pacientes. Los expertos asignaron
+    un índice de motivación a cada paciente. ¿Se podrá concluir que hay diferencias en las medias
+    del nivel de motivación para los distintos métodos de remotivación?
+
+|A|B|C|D|E|
+|---|---|---|---|---|
+|58|68|60|68|64|
+|62|70|65|80|69|
+|67|70|65|80|69|
+|70|81|70|89|74|
