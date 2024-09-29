@@ -11,7 +11,7 @@ jupyter: python3
 
 ## Problema 1
 
-Ungurpo de nutricionistas desea estimar el contenido de proteinas de cierta comidad
+Un gurpo de nutricionistas desea estimar el contenido de proteinas de cierta comidad
 enlatada. Obtuvo una muestra aleatoria de 18 latas y para cada lata se midio el ontenido de proteinas. 
 El conjunto de datos se  muestra a continuacion.
 $$ S = \{ 5.1, 4.9, 6.0, 5.0, 6.7, 5.5, 4.9, 6.1, 6.0, 5.8, 5.2, 4.7, 4.2, 4.9, 5.5, 5.6, 5.8, 6.0 \} $$
@@ -26,7 +26,6 @@ Indique la interpretaxion de este intervalo.
 ```{python}
 import numpy as np
 S = np.array([5.1, 4.9, 6.0, 5.0, 6.7, 5.5, 4.9, 6.1, 6.0, 5.8, 5.2, 4.7, 4.2, 4.9, 5.5, 5.6, 5.8, 6.0])
-intervalo_confianza = 0.95
 mean = S.mean()
 std = S.std()
 ic_right = round(mean + 1.96 * 0.7 / np.sqrt(18), 2)
@@ -41,11 +40,54 @@ print(ic_left2, ic_right2)
 
 2. Construya un intercalo deconfianza del 99% para la media del contenido de proteinas en esta comida enlatada. 
 Indique la interpretaxion de este intercalo.
+```{python}
+ic_right = round(mean + 2.58 * 0.7 / np.sqrt(18), 2)
+ic_left = round(mean - 2.58 * 0.7 / np.sqrt(18), 2)
+print(ic_left, ic_right)
+```
 
 3. Conruya un intercalo de confianzadel 90% para la media del contenido de proteinas en esta comida enlatada.
 Indique la interpretacion de este intercalo.
+```{python}
+ic_right = round(mean + 1.645 * 0.7 / np.sqrt(18), 2)
+ic_left = round(mean - 1.645 * 0.7 / np.sqrt(18), 2)
+print(ic_left, ic_right)
+```
 
 Observe esto intervalo, Que puede deir sobre el anxho de ellos y el nivel de xonfianza correspondiente?
+
+- A la medida que el nivel de confianza aumenta, el ancho del intervalo de confianza tambien aumenta.
+
+Sea $X_1, X_2, \ldots, X_n$ de una distribucion normal con medidia $\mu$ y  varianza $\sigma^2$. Entonces,
+$$ \frac{1}{n} \sum_{i=1}^n X_i = \bar{X} \sim N(\mu, \frac{\sigma^2}{n}) $$
+
+Por lo tanto,
+$$ \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1) $$
+
+Podemos encontrar $a$ y $b$ tal que 
+$$ P(a \leq \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \leq b) = 1 - \alpha $$
+$$ \implies P(\bar{X} - a \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X} + b \frac{\sigma}{\sqrt{n}}) = 1 - \alpha $$
+$$ \implies P(\bar{X} - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \bar{X} + z_{\alpha/2} \frac{\sigma}{\sqrt{n}})$$
+
+## Ejemplo 2
+
+Un grupo de nutricionistas desea estimar el contenido de proteínas de cierta
+comida enlatada. Obtuvo una muestra aleatoria de 18 latas y para cada lata se midió el
+contenido de proteínas. El conjunto de datos se muestra a continuación.
+$$ S = \{ 5.1, 4.9, 6.0, 5.0, 6.7, 5.5, 4.9, 6.1, 6.0, 5.8, 5.2, 4.7, 4.2, 4.9, 5.5, 5.6, 5.8, 6.0 \} $$
+
+1. Construya un intervalo de confianza del 95% para la media del contenido de proteínas
+en esta comida enlatada. Indique la interpretación de este intervalo.
+
+### Alternaticas:
+
+$Var(S^2_n) \rightarrow 0$ cuando $n \rightarrow \infty$, entonces, $S^2_n$ es la probbilidad. Por el Teorema de Slutsky 
+$$ \frac{\bar{X} - \mu}{S_n / \sqrt{n}} \sim t_{n-1} $$
+$$ \implies \bar{X} \pm t_{n-1, \alpha/2} \frac{S_n}{\sqrt{n}} $$
+
+Sea $X_1, X_2, \ldots, X_n$ de una distribucion normal con medidia $\mu$ y  varianza $\sigma^2$. Entonces,
+$$ \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \sim t_{n-1} $$
+$$ \implies \bar{X} \pm t_{n-1, \alpha/2} \frac{\sigma}{\sqrt{n}} $$
 
 # Interpretaccion Probabilistica de los IC
 
