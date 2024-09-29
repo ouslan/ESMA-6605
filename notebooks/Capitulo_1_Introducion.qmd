@@ -143,3 +143,64 @@ tratamientos en la variable respuesta
 |62|70|65|80|69|
 |67|70|65|80|69|
 |70|81|70|89|74|
+
+Pero, que tal si todos los pacientes asignados al método de Remotivación A tienen un nivel de
+motivación muy bajo al comienzo del estudio. Podría suceder que este método resulte no ser un
+buen método, pero ¿porque no es un buen método o porque no funciona para personas que tienen
+un nivel muy bajo de motivación? (confounding effects).
+
+**Diseno de Bloques Aleatorizados**: (Randomized Block Design) - Las
+unidades experimentales son divididas en grupos homogéneos llamados bloques. Dentro de cada
+bloque las unidades experimentales son asignadas aleatoriamente a los tratamientos.
+
+- Ejemplo:En un hospital psiquiátrico se quiere comparar cinco métodos distintos para
+remotivar pacientes. De los pacientes del hospital que tenían nivel de motivación muy bajo se
+seleccionaron 5 pacientes aleatoriamente y éstos se asignaron aleatoriamente a uno de los 5
+métodos de remotivación. Del mismo modo se hizo con pacientes que tenían nivel de motivación
+Bajo, Promedio y Alto. Al final del periodo experimental los pacientes fueron evaluados por un
+grupo de expertos que no conocían el método asignado a los pacientes. Los expertos asignaron
+un índice de motivación a cada paciente. ¿Se podrá concluir que hay diferencias en las medias
+del nivel de motivación para los distintos métodos de remotivación?
+
+
+#  Stadistica Descriptiva
+
+**Medidas Estadisticas**: Valorees numericos que describe n la muestra o la poblacion (si es que se tienen las medidas de la poblacion)
+
+sean $x_1, x_2, \ldots, x_n$ el conjunto de datos u observaciones otenidfad de una muestra de tamano $n$ de una poblacion de tamano $N$.
+
+## Medidas de Tendencia Central
+
+- Nos dan una idea del centro de ladistribucvion del conjunto de datos, de los valores que son tipicos en el conjunto de datos 
+  - Media o probmedio aritmetico de la muestra: $$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+  - Media o probmedio aritmetico de la poblacion: $$\mu = \frac{\sum_{i=1}^{N} x_i}{N}$$
+- **Mediana**: valor u observasion que divide a la muestra en dos partes igules, esto es el numero de observaviones que son menores o iguales que la mediana es igual al numero de los que son
+  mayores o iguales que la mediana. Para hallar la medfiana primero tiene que ordenar el vonjunto de datos 
+- **Moda**: valor o valores que se repiten con mayor frecuencia (se usa tanto para variabel cuanitativas como para variables vualitativas)
+
+## Medidas de Variabilidad
+
+- Nos dan informacion sobre cuan concentrados o dispersos estan los datos, sobre cuan diferentes son los unos de los otraos. Si todos los valores son los mismos no hay variabilidad.
+  Si todos no son liguales hay varibailidad y la magnitud de esta  variabilidad dependera de cuan agolomerados o diperso estan los datos 
+- **Amplitud**: $A = x_{max} - x_{min}$
+- **Varianza**: Mide la dispersion con repecto a la medi del conjunto de datos
+  - Variaza de la muestra: $$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}$$
+  - Varianza de la poblacion: $$\sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}$$
+- **Desviacion Estandar**: 
+  - Desviacion estandar de la muestra: $$s = \sqrt{s^2}$$
+  - Desviacion estandar de la poblacion: $$\sigma = \sqrt{\sigma^2}$$
+- **Coeficiente dce variacion**: usualmente se utiliza para comporarar la variabilidad enter dos o mas conjuntos de datos.
+  $$CV = \frac{s}{\bar{x}} \times 100$$
+
+# Sobre Percentiles en R
+
+Lamedidas de localizacion no dfice ndonde se encuentra una observavion praticdular de conjunto de datos con respecto a las demas observaciones del conjunto de datos.
+
+Por ejemplo, el percentil de 50 (la miana) es el punto medio del conjunto de datos. El 50% de las observacionhes del conjunto de datos exs menor o igual a la mediana y el otro 50% es mayor o igual a la mediana.
+
+Para hallar los percentiles , primero se ordena el conjunto de datos y se determina la posicion del percentil seun el numer ode observaciones (n) de la variable en cuestrion.
+
+Hay varias posibles formuals para la posicion/ Puede ller sobre la motivacion para las distintas fomulas en articulos cientificos. La funvjion quantile de R incopora distinatas formulas en la opvion type.
+
+El type 6 corresponde a la posicion = p(n+1) donde p es el percentil de interes dividido ente 100. Type 4 coresponde a la posicion = $p \times n$. Ambas formulas comuinesa en los libros de esxtadisticas .
+El default de la funcion quantilles es Type 7 que corresponde a posicion = $p(n-1) + 1$. 
