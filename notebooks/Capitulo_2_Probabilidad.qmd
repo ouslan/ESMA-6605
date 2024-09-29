@@ -7,7 +7,29 @@ jupyter: python3
 ---
 
 # Teorema de Limite Central (TLC)
- 
+
+Sea $X$ una variable aleatoria tal que 
+$$P(X = i) = 1/6, \quad i = 1, 2, 3, 4, 5, 6$$
+
+El valor esperado de $X$ es:
+$$E[X] = \sum_{i=1}^6 i \cdot P(X = i) = \frac{1}{6} \sum_{i=1}^6 i = 3.5$$
+
+Sea $X_1, X_2, \ldots, X_n$ una muestra aleatoria independientes e identicamente distribuidas con la distribucion de $X$.  Por Strong Law of Large Numbers (SLLN), 
+$$\lim_{n \to \infty} \bar{X}_n = E[X] = 3.5$$
+
+Desea aproximar $P(X = 2 \lor 4 \lor 6)$ Puede usar la SLLN, si define la v.a $w$ talque 
+$$w = \begin{cases} 1 & \text{si } X = 2 \lor 4 \lor 6 \\ 0 & X = 1 \lor 3 \lor 5 \end{cases}$$
+
+De que 
+$$
+\begin{split}
+E[w] & = 1 \cdot P(X = 2 \lor 4 \lor 6) + 0 \cdot P(X = 1 \lor 3 \lor 5) \\
+& = P(X = 2 \lor 4 \lor 6) \\
+\end{split}
+$$ 
+
+que es justamente lo que desea aprocimar expresado como un valor esperado. Debe entoces generar v.a $w_i$ con la distribucion de & de manra que 
+$$\lim_{n \to \infty} \bar{w}_n = E[w] = P(X = 2 \lor 4 \lor 6)$$
 
 ## Ejecicio 1
 
