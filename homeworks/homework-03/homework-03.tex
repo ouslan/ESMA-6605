@@ -1,0 +1,72 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin = .75in}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+
+
+\title{ESMA 6005: Assignacion 3}
+\author{Alejandro Ouslan}
+\date{Para Viernes 18 de octubre de 2024}
+
+\begin{document}
+
+\maketitle
+
+\vspace{.25in}
+
+\section{Problema 1}
+Se estudia el tiempo de reacción en humanos midiendo el tiempo que toma agarrar un objeto que va cayendo.
+Se desea determinar si en promedio el tiempo de reacción cuando se usa la mano dominante es menor a cuando
+de usa la mano no dominante. Se hizo un estudio con 12 individuos. Para cada uno de ellos se midió el tiempo
+de reacción separadamente en cada mano y la mano en que primero se midió la reacción fue escogida aleatoriamente.
+A continuación, el tiempo en segundos que les tomó agarrar el objeto que iba cayendo, tanto con la mano dominante
+como con la mano no dominante.
+
+\begin{itemize}
+	\item \textbf{Praametro de interes.}
+	      Es la diferencia en el promedio entre la mano dominante (MD) y mano no dominante (MND).
+	      Esto es un problema de promedios con muestras dependientes
+	\item \textbf{Construya el intervalo de confianza de 95\%.}
+	      \[
+		      \bar{d} \pm t_{\alpha/2} \left( \frac{s_d}{\sqrt{n}} \right) \\
+		      -.012 \pm 2.201 \left( \frac{0.18}{\sqrt{12}} \right) \\
+	      \]
+	\item \textbf{Interpretacion del intervalo de confianza.}
+	      Estamos 95\% seguros de que la diferencia entre el tiempo de reacción de la mano dominante y la mano no dominante es
+	      entre -0.024 y -0.001 segundos.
+
+	\item \textbf{hipotesis}:
+	      \begin{itemize}
+		      \item  $H_o: \mu_d \geq 0$
+		      \item $H_a: \mu_d < 0$
+	      \end{itemize}
+	\item \textbf{valor critico:}
+	      \[
+		      \begin{split}
+			      t &= \frac{\bar{d} - 0}{\frac{s_d}{\sqrt{n}}}\\
+			      t &= \frac{-0.012 - 0}{\frac{0.18}{\sqrt{12}}}\\
+			      t &= -2.438
+		      \end{split}
+	      \]
+	\item \textbf{Resultasos:}
+	      $statistic=-2.438, pvalue=0.0165, df=11$
+	\item \textbf{Conclusión:}el valor criticó para esta prueba es 0.0165 y al ser menor que 0.05 rechazamos nuestra hipótesisnula
+	      y aceptamos nuestra hipótesis alterna. En el contexto del problema tenemos suficienteevidencia para concluir que el tiempo de
+	      reacción de la mano dominante es menor que la manono dominante
+\end{itemize}
+
+\end{document}
