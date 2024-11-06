@@ -1,0 +1,92 @@
+---
+title: "ESMA 6605: Porpoprciones"
+format:
+  html:
+    code-fold: True
+jupyter: python3
+---
+
+
+# Intervalos de Confianza para $\hat{p}$
+
+## Problema 1
+
+Quiere empezar un negocio pequeno. Se ha dado cuenta de que muchos de los estudiantes de UPRM tiene que ir a la casa de sus padres el fin de semana porque no tiene 
+facilidade en Mayaguez para lavqar su ropa. Piensa que tener una lavanderia con precios mcos y un buen ambiente seria un buen negocio en Mayaguez hace una encuesta
+con 500 estudiantes seleccionados aleatroriamente de la UPRM, 155 de ellos le dicen que usarian su sercivio de lavanderia. Construya un intervalo de confianza de 95% 
+para estimr la porporcion de estudiantes del RUM que usarian su servicio lavanderia.
+
+- **Parametro de interes**: $\hat{p}$ = proporcion de estudiantes del RUM que usarian su servicio de lavanderia
+- **Estimador**: $\hat{p} = \frac{155}{500} = 0.31$
+
+```{python}
+p = 155/500
+z = 1.96
+n = 500
+lower = p - z * (p*(1-p)/n)**0.5
+upper = p + z * (p*(1-p)/n)**0.5
+ci = [round(lower,3), round(upper,3)]
+print(ci)
+```
+
+- **Interpretacion de resultados**: Estamos 95% confiados de que la proporcion de estudiantes del RUM que usarian su servicio de lavanderia esta entre 0.2695 y 0.3505
+
+
+# Teoria de Intervalo de Confianza para $\hat{p}$
+
+- La formula para el intervalo de confianza es: 
+  $$\hat{p} \pm z \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+donde:
+  - $\hat{p}$ es la proporcion muestral
+  - $z$ es el valor critico de la distribucion normal estandar
+  - $n$ es el tamano de la muestral 
+Este intervalo si:
+  - Se cumple n las condiciones del experimento Binopmial ($n$ intentos donde cada uno es exito o fracas, probabilidad de exito constante de intento a intend,
+  intentos independientes)
+  - $n\hat{p} \geq 15$ y $n(1-\hat{p}) \geq 15$ (permite el uso de la $z$ en la formula debido a la teoria de la aproximacion e la distribucion Binomial usando un 
+  distribucion normal).
+
+- Antes de construir el intervalo debemos verificar que se cumplen los supuestos para el analisis:
+  1. Condiciones del experimento Binomial 
+    - 5oo repeticiones 
+    - Exito: Si Fracaso: No
+    - $P$ = probabilidad de exito es lo que qeremos estima. Podemos pensar que $p$ es constatne de etudiante a estudiante? Si hubiera entrevistado no docente, docente y estudiante , tal 
+      vez seria mas dificil el argumento porque docente y no docente tal vez tiene lavadora/sedcadoras en sus casas
+    - Independencia: Si 
+  2. 
+$$
+\begin{split}
+n\hat{p} & = 500(\frac{155}{500}) = 155 \geq 15 \\
+n(1-\hat{p}) & = 500(1-\frac{155}{500}) = 345 \geq 15
+\end{split}
+$$
+- La formula par ael intervalo de $(1-\alpha)100\%$ es:
+
+$$ 
+  \begin{split}
+  \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
+  \frac{155}{500} \pm 1.96 \sqrt{\frac{\frac{155}{500}(1-\frac{155}{500})}{500}} \\
+  IC = [0.2695,03505]
+\end{split}
+$$
+
+## Calcular el tamaño de la muestra
+
+$$
+\begin{split}
+E = z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
+n = (\frac{z_{\alpha/2}}{E})^2 \cdot \hat{p}(1-\hat{p})
+\end{split}
+$$
+
+Se debe tener un estimado previo de $p$ o usar $p=0.5$ que provee el tamano de muestr ma sconservador 
+
+### Ejemplo
+Previo a las eleccioned: Desea esxtimar la proporcion de personas que votaran en las procimas elecciones generales en PR. $E=3.1\%$ y $p=0.5$.
+$$
+\begin{split}
+n & = (\frac{1.96}{0.031})^2 \cdot 0.5(1-0.5) \\
+n & = 999.4 
+\end{split}
+$$
+El tamano de la muestra debe ser 1000
