@@ -1,0 +1,51 @@
+---
+title: "ESMA 6605: Intervalo de confianza para la varianza"
+format:
+  html:
+    code-fold: True
+jupyter: python3
+---
+
+# Intervalo de confianza para la varianza $\sigma^2$
+
+## Problem1
+
+El ingeniero de control de calidad de una compania de dulces de chocolate desea investigar si la recalibracion de la maquina dce llenado de los moldes de las
+barras de chocolate resulto en la generacion de barras con pesos mas consistentes. Antes de recalibrar la maquin a la desviacion estandar del peso de las 
+barras era $0.75$ gramos. El ingeniero tomo una muestra aleatoria de barras de chocolate y otuvo los sigientes pesos (en gramos)
+$$ 19.68, 20.66, 19.98, 20.65, 19.61, 20.55, 20.36, 21.02, 21.50, 19.74, 19.56$$
+
+El interes en este problema es hacer una prueba de hipotesis, pero por ahora: contruya un intervalo de confianza para la dcsviacion estandas de los pesos 
+de las barras de chocolate despues de recalibrar la maquina. 
+
+- **Parametro de interes**: $\sigma^2$ = varianza de los pesos de las barras de chocolate despues de recalibrar la maquina
+- **Estimador**: $s^2 = 
+
+```{python}
+import numpy as np
+
+data = np.array([19.68, 20.66, 19.98, 20.65, 19.61, 20.55, 20.36, 21.02, 21.50, 19.74, 19.56])
+n = len(data)
+s = np.std(data, ddof=1)
+chi1 = 3.247
+chi2 = 20.483
+ci = np.sqrt((n-1)*s**2/chi2), np.sqrt((n-1)*s**2/chi1)
+ci
+```
+- **Interpretacion**: Estamos $95%$ confiados de que la varianza de los pesos de las barras de chocolate despues de recalibrar la maquina esta entre $0.20002$ y $1.2629$ gramos.
+
+# Teoria de Intervalo de Confianza para $\sigma^2$
+
+- Sean $X_1, X_2, \ldots, X_n$ una muestra aleatoria de una poblacion normal con media $\mu$ y varianza $\sigma^2$. Entonces, el estadistico
+  $$\chi^2_{n-1} = \frac{(n-1)s^2}{\sigma^2}$$
+- dondejJ:
+  - chi- cuadrado con $n-1$ grados de libertad
+
+- podemos hallar a y b talque 
+  $$P(a \leq \chi^2_{n-1} \leq b) = 1-\alpha$$
+
+- La probabilidad de estar a la derecha de este valor es $1 - \alpha/2$ y la probabilidad de estar a la izquierda de este valor es $\alpha/2$. Por lo tanto, 
+  $$P(\frac{(n-1)s^2}{\chi^2_{n-1,\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi^2_{n-1,1-\alpha/2}}) = 1-\alpha$$
+
+- Por lo tanto la formula para un tervalo de confiaza del $(1 - \alpha)100%$ para $\sigma^2$ es:
+  $$\left(\sqrt{\frac{(n-1)s^2}{\chi^2_{n-1,1-\alpha/2}}}, \sqrt{\frac{(n-1)s^2}{\chi^2_{n-1,\alpha/2}}}\right)$$
