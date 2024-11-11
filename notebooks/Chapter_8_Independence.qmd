@@ -1,0 +1,155 @@
+---
+title: "ESMA 6605: Capitulo 8 - Independence"
+format:
+  html:
+    code-fold: true
+    mathjax: true
+jupyter: python3
+---
+
+```{python}
+import os
+os.chdir('..')
+```
+
+```{python}
+import pandas as pd
+import scipy.stats as stats
+```
+
+```{python}
+data = [
+  [271, 261, 82, 20],
+  [247, 567, 231, 53],
+  [33, 103, 92, 36]
+]
+data2 = [
+  [227, 939, 527], 
+  [163, 737, 393]
+]
+df2 = pd.DataFrame(data2, columns=["not_happy", "pretty_happy", "verry_happy"])
+df = pd.DataFrame(data, columns=["Exelente", "bueno", "regular", "probe"])
+print(stats.chi2_contingency(df2))
+```
+
+```{python}
+((43-50)**2)/50
+```
+
+# ANOVA
+
+# Problemas de Blockes 
+
+## Problema 1 
+
+En un hospital psiquiátrico se quiere comparar cinco métodos distintos para remotivar pacientes. Se
+seleccionaron 20 pacientes del hospital aleatoriamente y a cada uno se le asignó aleatoriamente uno de
+los cinco métodos de remotivación de manera que hubiera cuatro pacientes por método. Al final del
+periodo experimental los pacientes fueron evaluados por un grupo de expertos que no conocían el
+método asignado a los pacientes. Los expertos asignaron un índice de motivación a cada paciente. ¿Se
+podrá concluir que hay diferencias en los promedios del nivel de motivación para los distintos métodos
+de remotivación?
+
+| A  | B  | C  | D  | E  |
+|----|----|----|----|----|
+| 58 | 68 | 60 | 72 | 64 |
+| 62 | 70 | 65 | 80 | 69 |
+| 67 | 78 | 68 | 81 | 70 |
+| 70 | 81 | 70 | 89 | 74 |
+
+- **Parametros de interes**: 
+- **Hipotesis nula**: 
+- **Hipotesis alternativa**:
+
+Pero, que tal si todos los pacientes asignados al método de Remotivación A tienen un nivel de
+motivación muy bajo al comienzo del estudio. Podría suceder que este método resulte no ser un
+buen método, pero ¿porque no es un buen método o porque no funciona para personas que tienen
+un nivel muy bajo de motivación? (confounding effects).
+
+Este diseño experimental se conoce como un Diseño Completamente Aleatorizado (Completely
+Randomized Design) – Cada unidad experimental es asignada a un tratamiento aleatoriamente.
+
+```{r}
+data = [
+  [58, 68, 60, 72, 64],
+  [62, 70, 65, 80, 69],
+  [67, 78, 68, 81, 70],
+  [70, 81, 70, 89, 74]
+]
+df = pd.DataFrame(data, columns=["A", "B", "C", "D", "E"])
+print(stats.f_oneway(df["A"], df["B"], df["C"], df["D"], df["E"]))
+```
+
+## Problema 2
+
+El tipo de tela de la ropa atlética puede afectar la cantidad de agua que se evapora de la superficie de la
+piel. Cinco tipos distintos de tela fueron estudiados. La cantidad de agua que se evapora de la superficie
+de la piel del antebrazo fue medida en cinco individuos después de 60 minutos de usar cada uno de los
+tipos de tela. Las medidas para los distintos tipos de tela se hicieron en días diferentes. El conjunto de
+datos se muestra a continuación. ¿Hay evidencia para concluir que la cantidad de agua que se evapora
+de la superficie del antebrazo es diferente para los distintos tipos de tela?
+
+|individuos   | 1    | 2     | 3    | 4     | 5     |
+|---|------|-------|------|-------|-------|
+| 1 | 4.04 | 11.5  | 4.01 | 10.71 | 10.66 |
+| 2 | 2.25 | 16.23 | 1.94 | 8.39  | 8.42  |
+| 3 | 5.55 | 15.01 | 1.58 | 8.63  | 13.86 |
+| 4 | 5.02 | 15.15 | 4.15 | 4.09  | 7.15  |
+| 5 | 1.94 | 9.59  | 5.14 | 6.30  | 12.79 |
+
+- **Parametros de interes**:
+- **Hipotesis nula**:
+- **Hipotesis alternativa**:
+
+```{r}
+data = [
+  [4.04, 11.5, 4.01, 10.71, 10.66],
+  [2.25, 16.23, 1.94, 8.39, 8.42],
+  [5.55, 15.01, 1.58, 8.63, 13.86],
+  [5.02, 15.15, 4.15, 4.09, 7.15],
+  [1.94, 9.59, 5.14, 6.30, 12.79]
+]
+df = pd.DataFrame(data, columns=["1", "2", "3", "4", "5"])
+print(stats.f_oneway(df["1"], df["2"], df["3"], df["4"], df["5"]))
+```
+
+
+## Teoria de ANOVA
+
+Diseno completamente Aleatorizado (Completely Randomized Design)
+- $x_{ij}$ observaciones $i$ de lgrup $j$
+
+| Grupo 1   | Grupo 2   | Grupo 3   | ...    | Grupo k  |
+|-----------|-----------|-----------|--------|----------|
+| $x_{11}$  | $x_{12}$  | $x_{13}$  | $\cdots$| $x_{1k}$ |
+| $x_{21}$  | $x_{22}$  | $x_{23}$  | $\cdots$| $x_{2k}$ |
+| $x_{31}$  | $x_{32}$  | $x_{33}$  | $\cdots$| $x_{3k}$ |
+| $\vdots$  | $\vdots$  | $\vdots$  | $\ddots$| $\vdots$ |
+| $x_{n1}$  | $x_{n2}$  | $x_{n3}$  | $\cdots$| $x_{nk}$ |
+
+- $k$ es el otal de los grupos
+- El grupo 1 tiene $n_1$ observacione, el grupo 2 tiene $n_2$ observaciones, el grupo $k$ tiene $n_k$ observaciones
+- $N$ es el total de observaciones 
+- Los tratamientos se asignarian aleatoriamnete a los individuos (unidades experimentales), por lo que tedremos $k$ muestras
+  aleatorias independientes 
+- Se asume que los $k$ grupos tienen distribucion normal con media $\mu_1, \mu_2, \cdots, \mu_k$ y varianza $\sigma^2$. Esto es 
+  $\sigma^2_1 = \sigma^2_2 = \cdots = \sigma^2_k = \sigma^2$.
+- Hipotesis de interes: $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
+- Hipotesis alternativa: $H_1: \mu_i \neq \mu_j$ para al menos un par de $i$ y $j$.
+
+Estadistico de preba, Distribucion de este estadisco si $H_0$ es verdadera, Region de rechazo, 
+
+| Fuente de variacion | Suma de cuadrados | Grados de libertad | Media de cuadrados | Valor Esperado de los Cuadradcos Medios | Estadistico de Prueba |
+|----------------------|-------------------|--------------------|--------------------|------------------------------------------|-----------------------|
+| Entre grupos         | $SSA = \sum_{j=1}^k n_j(\bar{x}_j - \bar{x})^2$ | $k-1$ | $MSA = \frac{SSA}{(k-1)}$ | $\sigma^2 + \frac{\sum_{j=1}^k n_j(\mu_j - \mu)^2}{k-1}$ | $F = \frac{MSA}{MSE}$ |
+| Dentro de grupos     | $SSE = \sum_{j=1}^k \sum_{i=1}^{n_j} (x_{ij} - \bar{x}_j)^2$ | $N-k$ | $MSE = \frac{SSE}{N-k}$ | $\sigma^2$ | |
+| Total                | $SST = \sum_{j=1}^k \sum_{i=1}^{n_j} (x_{ij} - \bar{x})^2$ | $N-1$ | | | |
+
+- Observe el valor esperado de MSA y MSE. Ambos incluyen el termino $\sigma^2$. MSE provee un estimador $\sigma^2$, minetras que MSA estimara $\sigma^2$, si 
+  $$ \sum_{j=1}^k n_j(\mu_j - \mu)^2 = 0 \iff \mu_1 = \mu_2 = \cdots = \mu_k = \mu $$
+  $F = \frac{MSA}{MSE}$ sera aproximadamente 1, si $\mu_1 = \mu_2 = \cdots = \mu_k = \mu$. Esto es evidencia a favor de la hipotesis nula. Por otro lado, cuando MSA 
+  es grande comparado co nMSE, entonces $F = \frac{MSA}{MSE}$ sera grande. Esto es evidencia de que $\sum_{j=1}^k n_j(\mu_j - \mu)^2 \neq 0$. Lo que implica que no todas las medias son iguales.
+  En resumen, si $F$ es grande tenemos evidencia en contrea d ela hipotesis nula.
+- Estadisco de prueba: $F$ 
+- Distribucion del estadistico de prueba si $H_0$ es verdadera: el estadistico de prueba sigue una distribucion $F$ con $k-1$ y $N-k$ grados de libertad.
+- Region de rechazo: Se rexhaza la hipotesis nula si $F > F_{\alpha}(k-1, N-k)$

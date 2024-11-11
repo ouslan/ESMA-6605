@@ -1,0 +1,54 @@
+---
+title: "ESMA 6605: Pruebas de Hipotesis"
+format:
+  html:
+    code-fold: True
+jupyter: python3
+---
+
+
+# Problema de dos muestras
+
+## Problema 1
+
+Se investigo el efecto de la terapia de reminiscencia en andieanas que sugren de depressio.
+Se utilizó una muestra de 13 mujeres de más de 60 años que han vivido en un asilo por más de tres
+meses. Para cada una de ellas se midió su nivel de depresión antes y después de la terapia de
+reminiscencia. El nivel de depresión se midió usando la escala geriátrica de depresión (GDS)
+para la cual índices más altos indican mayor depresión. El conjunto de datos se muestra a
+continuación. ¿Se puede concluir que la terapia de reminiscencia ayuda a reducir la depresión?
+Seaaasd $\alpha = 0.05$.
+
+| Individuo | GDS antes de la terapia  | GDS después de la terapia |
+|-----------|--------------------------|---------------------------|
+| 1         | 12                       | 11                        |
+| 2         | 10                       | 10                        |
+| 3         | 16                       | 11                        |
+| 4         | 2                        | 3                         |
+| 5         | 12                       | 9                         |
+| 6         | 18                       | 13                        |
+| 7         | 11                       | 8                         |
+| 8         | 16                       | 14                        |
+| 9         | 16                       | 16                        |
+| 10        | 10                       | 10                        |
+| 11        | 14                       | 12                        |
+| 12        | 21                       | 22                        |
+| 13        | 9                        | 9                         |
+
+```{python}
+```
+
+## Problema 2
+
+## Problema 3
+
+## Problema 4
+En un estudio clínico de Nasonex, 3774 pacientes seleccionados aleatoriamente fueron divididos
+aleatoriamente en dos grupos. El grupo 1 recibió tratamiento con $100mg$ de Nasonex y el grupo 2
+recibió un placebo. De $2103$ pacientes en el primer grupo, $547$ reportaron dolor de cabeza como
+efecto secundario. De 1671 pacientes en el segundo grupo, $368$ reportaron dolor de cabeza como
+efecto secundario. ¿Hay evidencia suficiente para concluir que la proporción de pacientes que
+experimentan dolor de cabeza como efecto secundario es mayor en pacientes que reciben
+tratamiento con $100mg$ de Nasonex? Sea $\alpha = 0.05$.
+
+
