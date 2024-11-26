@@ -17,105 +17,6 @@ from statsmodels.tsa.arima_process import ArmaProcess
 ```
 
 ```{python}
-# Set random seed for reproducibility
-np.random.seed(1312)
-
-# Simulate AR(1) process (AR(1) model: phi = 0.7)
-ar = np.array([1, -0.7])  # AR(1) parameter (phi)
-ma = np.array([1])  # No MA component
-d = 0  # No differencing
-n = 100  # Number of observations
-
-# Simulate the AR(1) time series
-ar_process = ArmaProcess(ar, ma)
-time_series = ar_process.generate_sample(nsample=n)
-
-# Plot the simulated AR(1) time series
-plt.figure(figsize=(10, 5))
-plt.plot(time_series)
-plt.title('Simulated AR(1) Time Series')
-plt.show()
-
-# Fit a linear regression to the AR(1) data
-# We will use the time index as a predictor in the linear regression
-time_index = np.arange(1, n + 1)
-X = sm.add_constant(time_index)  # Add constant for the intercept
-model = sm.OLS(time_series, X)
-results = model.fit()
-
-# Get the residuals from the linear regression
-residuals = results.resid
-
-# Plot the residuals
-plt.figure(figsize=(10, 5))
-plt.plot(residuals)
-plt.title('Residuals from Linear Regression (Attempt to Detrend)')
-plt.show()
-
-# Check the autocorrelation of the residuals
-plt.figure(figsize=(10, 5))
-plot_acf(residuals, lags=30)  # Plot ACF of residuals
-plt.title('Autocorrelation of Residuals')
-plt.show()
-
-# Print the regression results to show that the model didn't account for autocorrelation
-print(results.summary())
-```
-
-```{python}
-# Parameters
-np.random.seed(42)
-start_date = '2000-01-01'  # Start date of the time series
-end_date = '2024-01-01'    # End date of the time series
-freq = 'YE'                 # Frequency of the time series, 'A' stands for annual data
-
-# Generate a date range
-dates = pd.date_range(start=start_date, end=end_date, freq=freq)
-
-# Simulate AR(1) process (AR(1) model: phi = 0.7)
-ar = np.array([1, -0.7])  # AR(1) parameter (phi)
-ma = np.array([1])  # No MA component
-d = 0  # No differencing
-n = 100  # Number of observations
-
-# Simulate the AR(1) time series
-ar_process = ArmaProcess(ar, ma)
-time_series = ar_process.generate_sample(nsample=n)
-
-# Fit a linear regression to the AR(1) data
-# We will use the time index as a predictor in the linear regression
-time_index = np.arange(1, n + 1)
-X = sm.add_constant(time_index)  # Add constant for the intercept
-model = sm.OLS(time_series, X)
-results = model.fit()
-residuals = results.resid
-print(results.summary())
-
-# Plot the simulated AR(1) time series
-plt.figure(figsize=(10, 5))
-plt.plot(time_series)
-plt.title('Simulated AR(1) Time Series')
-plt.show()
-
-# Fit an ARIMA(1, 0, 0) model (AR(1) model)
-arima_model = ARIMA(time_series, order=(2, 0, 0))
-arima_fit = arima_model.fit()
-
-# Print the ARIMA model summary
-print(arima_fit.summary())
-
-# Plot the residuals from the ARIMA model
-residuals_arima = arima_fit.resid
-
-# Check the autocorrelation of the residuals
-plt.figure(figsize=(10, 5))
-plot_acf(residuals_arima, lags=30)  # Plot ACF of residuals
-plt.title('Autocorrelation of ARIMA Residuals')
-plt.show()
-```
-
-
-```{python}
 # Data for the simulation
 # Set random seed for reproducibility
 np.random.seed(1312)
@@ -149,7 +50,7 @@ plt.show()
 ```{python}
 # Attemp to get the regression
 # Fit a linear regression to the AR(1) data using time index
-time_index = np.arange(1, n + 1)
+time_index = np.arange(1, n+1)
 X = sm.add_constant(time_index)  # Add constant for the intercept
 model = sm.OLS(time_series, X)
 results = model.fit()
@@ -165,25 +66,16 @@ plt.plot(date_range, results.fittedvalues, label='Fitted', color='red', linestyl
 ```
 
 ```{python}
-# Get the residuals from the linear regression
-residuals = results.resid
-plt.figure(figsize=(10, 5))
-plt.plot(residuals)
-plt.show()
-```
-
-
-```{python}
 # Check the autocorrelation of the residuals
 plt.figure(figsize=(10, 5))
-plot_acf(residuals, lags=30)  # Plot ACF of residuals
+plot_acf(time_series, lags=30)  # Plot ACF of residuals
 plt.title('Autocorrelation of Residuals')
 plt.show()
 ```
 
 ```{python}
 # Fit an ARIMA(1, 0, 0) model (AR(1) model)
-arima_model = ARIMA(time_series, order=(2, 0, 0))
+arima_model = ARIMA(time_series, order=(1, 0, 0))
 arima_fit = arima_model.fit()
 # Print the ARIMA model summary
 print(arima_fit.summary())
@@ -213,3 +105,5 @@ plt.plot(date_range, time_series)
 plt.plot(date_range, arima_fit.fittedvalues, label='Fitted', color='red', linestyle='--')
 ```
 
+```{python}
+arima_fit.params[1]
